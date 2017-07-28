@@ -64,12 +64,12 @@
 	
 	$(function() {
 		$("#login").click(function(e){
-			alert("Please type a valid password");
+			alert("Plz enter a correct password !");
 			$(function(){
 				var user = {};
 				user.act = "login";
-				user.name = $("input[name='log_ac']").val();
-				user.pw = $("input[name='log_pw']").val();
+				user.name = $("input[name='urnam']").val();
+				user.pw = $("input[name='ursym']").val();
 				
 			alert(user.name);
 				$.ajax({
@@ -90,37 +90,38 @@
 				return false;
 			});
 		});
-	
-		$("#sign_up").click(function(e){
-			var user = {};
-			user.act = "signup";
-			user.name = $("input[name='ac']").val();
-			user.pw = $("input[name='pw']").val();
-			user.email = $("input[name='email']").val();
-			if(user.name == ""||user.pw == ""||$("input[name='re_pw']").val()==""||user.email==""){
-				alert("Please input all infomration!");
-			}else if ($("input[name='re_pw']").val() != user.pw){
-				alert("Please input same password at repeat password!");
-			}else {
-				$.ajax( {
-					url: "https://alexng88alexng88.github.io/alexng88alexng88-leelokyee305Assignment/register.html",
-					type: "POST",
-					data: user,
-					datatype: "json",
-					success: function (result) {
-						alert(result);
-       			 console.log(result);
-        		if(result.status == 200){
-            		console.log("hope can see here");
-        			}
-    			},
-    			error: function(result){
-        			console.log(result);
-    				}
-				});
-			}
-			return false;
-		});
-	});
-</script>
+      
+      $("#sign_up").click(function(e){
+                          var user = {};
+                          user.act = "signup";
+                          user.name = $("input[name='urnam']").val();
+                          user.pw = $("input[name='symbol']").val();
+                          user.email = $("input[name='email']").val();
+                          if(user.name == ""||user.pw == ""||$("input[name='symbol']").val()==""||user.email==""){
+                          alert("Please input all information!");
+                          }else if ($("input[name='symbol']").val() != user.pw){
+                          alert("Please input valid email address!");
+                          }else {
+                          $.ajax( {
+                                 url: "hhttps://alexng88alexng88.github.io/alexng88alexng88-leelokyee305Assignment/register.html",
+                                 type: "POST",
+                                 data: user,
+                                 datatype: "json",
+                                 success: function (result) {
+                                 alert(result);
+                                 console.log(result);
+                                 if(result.status == 200){
+                                 console.log("hope can see here");
+                                 }
+                                 },
+                                 error: function(result){
+                                 console.log(result);
+                                 }
+                                 });
+                          }
+                          return false;
+                          });
+      });
+
+		</script>
 </html>
