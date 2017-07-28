@@ -6,30 +6,6 @@
 		<link rel="stylesheet" href="css/base.css">
 	</head>
 	<body>
-	
-	
-	<script LANGUAGE="JavaScript">
-function getParams(){
-var idx = document.URL.indexOf('?');
-var params = new Array();
-if (idx != -1) {
-var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
-for (var i=0; i<pairs.length; i++){
-nameVal = pairs[i].split('=');
-params[nameVal[0]] = nameVal[1];
-}
-}
-return params;
-}
-params = getParams();
-firstname = unescape(params["firstname"]);
-lastname = unescape(params["lastname"]);
-age = unescape(params["age"]);
-document.write("Welcome! " + firstname + "<br>");
-document.write("Your Password: " + lastname + "<br>");
-document.write("This is your Email Address: " + age + "<br>");
-</script>
-	
 		<!-- section contains the application -->
 		<section id="todoapp">
 
@@ -69,7 +45,7 @@ document.write("This is your Email Address: " + age + "<br>");
 			<p>Add items to your Favourite list by typing above or delete them by clicking the X</p>
             
             <div>
-              <h1>  <a href="index.html">Log Out</a></h1>
+                <a href="index.html">Home Page</a>
             </div>
             
 		</footer>
