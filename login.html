@@ -6,34 +6,37 @@
   <title>lok yee assignment Login Page</title>
   
   
-  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+ 
 
-      <link rel="stylesheet" href="eCommerceStyle.css">
+      <link rel="stylesheet" href="css/base.css">
 
   
 </head>
 
 <body>
+ 
+ <form type=get action="favourite.html">
+ 
   <div class="login-wrap">
 	<div class="login-html">
     
-		<!-- <input id="tab-1" type="radio" name="tab" class="sign-in" checked> -->
+		
         
-        <label align=centre for="tab-1" class="tab">Welcome To Our Login Page</label>
+        <h1><label align=centre for="tab-1" class="tab">Welcome To Our Login Page</label></h1>
 		<br><br><br>
 		<div class="login-form">
 			<!--Sign In-->
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="log_user" name="log_ac" type="text" class="input">
-				</div>
+					<input id="urnam" name="urnam" type="text" class="input">
+				</div><br>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="log_pass" name="log_pw" type="password" class="input" data-type="password">
-				</div>
+					<input id="ursym" name="ursym" type="password" class="input" data-type="password">
+				</div><br>
 				<div class="group">
-					<input id="login" type="submit" class="button" value="Login">
+					<input type="submit" class="button" id="login" value="Login">
 				</div>
 				<br><br><br>
 				<div class="hr"></div>
@@ -52,6 +55,7 @@
 		</div>
 	</div>
 </div>
+	</form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -60,13 +64,14 @@
 	
 	$(function() {
 		$("#login").click(function(e){
-			//alert("D");
+			alert("Please type a valid password");
 			$(function(){
 				var user = {};
 				user.act = "login";
-				user.ac = $("input[name='log_ac']").val();
+				user.name = $("input[name='log_ac']").val();
 				user.pw = $("input[name='log_pw']").val();
-			//	alert(user.ac);
+				
+			alert(user.name);
 				$.ajax({
 					url: "http://127.0.0.1:3000/login.html",
 					type: "POST",
@@ -89,10 +94,10 @@
 		$("#sign_up").click(function(e){
 			var user = {};
 			user.act = "signup";
-			user.ac = $("input[name='ac']").val();
+			user.name = $("input[name='ac']").val();
 			user.pw = $("input[name='pw']").val();
 			user.email = $("input[name='email']").val();
-			if(user.ac == ""||user.pw == ""||$("input[name='re_pw']").val()==""||user.email==""){
+			if(user.name == ""||user.pw == ""||$("input[name='re_pw']").val()==""||user.email==""){
 				alert("Please input all infomration!");
 			}else if ($("input[name='re_pw']").val() != user.pw){
 				alert("Please input same password at repeat password!");

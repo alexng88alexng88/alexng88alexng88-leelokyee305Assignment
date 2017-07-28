@@ -6,18 +6,25 @@
   <title>lok yee assignment Register Page</title>
   
   
-  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
-
-      <link rel="stylesheet" href="eCommerceStyle.css">
+ 
+      <link rel="stylesheet" href="css/base.css">
 
   
 </head>
 
 <body>
+
+ 
+ <form type="get" action="http://127.0.0.1:3000/favouritelist.html">
+ 
+ 
+ 
+ 
+ 
   <div class="login-wrap">
 	<div class="login-html">
 		
-		<label for="tab-2" class="tab">Welcome to Our Register page</label>
+		<h1><label for="tab-2" class="tab">Welcome to Our Register page</label></h1>
 		<div class="login-form">
 			<br><br><br>
 			
@@ -25,22 +32,19 @@
 			<div class="sign-up-htm">
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" name="ac" type="text" class="input">
-				</div>
+					<input id="user" name="name" type="text" class="input">
+				</div><br>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" name="pw" type="password" class="input" data-type="password">
+					<input id="pass" name="symbol" type="password" class="input" data-type="password">
 				</div>
-				<div class="group">
-					<label for="re_pass" class="label">Repeat Password</label>
-					<input id="re_pass" name="re_pw" type="password" class="input" data-type="password">
-				</div>
+				<br>
 				<div class="group">
 					<label for="email" class="label">Email Address</label>
 					<input id="email" name="email" type="text" class="input">
-				</div>
+				</div><br>
 				<div class="group">
-					<input id="sign_up"type="submit" class="button" value="Register">
+					<input type="submit" value="Register">
 				</div>
 				<div class="hr"></div>
 				<br><br><br>
@@ -56,23 +60,24 @@
 		</div>
 	</div>
 </div>
+	</form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 
 <script>
 	
 	$(function() {
 		$("#login").click(function(e){
-			//alert("D");
+			alert("Please type a valid password");
 			$(function(){
 				var user = {};
 				user.act = "login";
-				user.ac = $("input[name='log_ac']").val();
+				user.name = $("input[name='log_ac']").val();
 				user.pw = $("input[name='log_pw']").val();
-			//	alert(user.ac);
+				
+			alert(user.name);
 				$.ajax({
-					url: "http://127.0.0.1:3000/login.html",
+					url: "http://127.0.0.1:3000/favlist.html",
 					type: "POST",
 					data: user,
 					success: function (result) {
@@ -92,17 +97,17 @@
 	
 		$("#sign_up").click(function(e){
 			var user = {};
-			user.act = "Registered";
-			user.ac = $("input[name='ac']").val();
+			user.act = "signup";
+			user.name = $("input[name='ac']").val();
 			user.pw = $("input[name='pw']").val();
 			user.email = $("input[name='email']").val();
-			if(user.ac == ""||user.pw == ""||$("input[name='re_pw']").val()==""||user.email==""){
+			if(user.name == ""||user.pw == ""||$("input[name='re_pw']").val()==""||user.email==""){
 				alert("Please input all infomration!");
 			}else if ($("input[name='re_pw']").val() != user.pw){
 				alert("Please input same password at repeat password!");
 			}else {
 				$.ajax( {
-					url: "http://127.0.0.1:3000/register.html",
+					url: "http://127.0.0.1:3000/favlist.html",
 					type: "POST",
 					data: user,
 					datatype: "json",
@@ -122,4 +127,5 @@
 		});
 	});
 </script>
+
 </html>

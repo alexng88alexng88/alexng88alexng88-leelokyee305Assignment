@@ -133,7 +133,7 @@ var server = http.createServer(function(request, response) {
 							
 							collection.insert({
 
-								username: obj.ac,
+								username: obj.name,
 								password: obj.pw
 							}, function(err, data) {
 								
@@ -170,10 +170,10 @@ var server = http.createServer(function(request, response) {
 		
 		
 									
-									var username = obj.ac;
+									var username = obj.name;
 					        var password = obj.pw;
 									
-		console.log("Your Username is ="+obj.ac);
+		console.log("Your Username is ="+obj.name);
 		console.log("Your Password is ="+obj.pw);
 									
 									 MongoClient.connect("mongodb://localhost:27017/dataB", function (err, db) {
@@ -189,7 +189,7 @@ var server = http.createServer(function(request, response) {
 									//	if (username == items[i].ac && password == items[i].pw) {
 										console.log("user="+items[i].username);
 										console.log("pass="+items[i].password);
-										console.log("user1="+obj.ac);
+										console.log("user1="+obj.name);
 										console.log("pass1="+obj.pw);
 										if (items[i].username ==obj.ac && items[i].password == obj.pw) {
 											usersssssss= items[i].username;
